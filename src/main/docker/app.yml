@@ -1,0 +1,16 @@
+version: '2'
+services:
+  netsuivi05024-app:
+    image: netsuivi05024
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://netsuivi05024-postgresql:5432/NETSUIVI05024
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    ports:
+      - 8200:8200
+  netsuivi05024-postgresql:
+    extends:
+      file: postgresql.yml
+      service: netsuivi05024-postgresql

@@ -1,0 +1,11 @@
+version: '2'
+services:
+  netsuivi05024-postgresql:
+    image: postgres:11.2
+    # volumes:
+    #     - ~/volumes/jhipster/NETSUIVI05024/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=NETSUIVI05024
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
